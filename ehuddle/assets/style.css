@@ -1,0 +1,460 @@
+:root {
+  --foreground: 260, 30%, 15%;
+  --card: 45, 100%, 98%;
+  --shadow-cartoon: 4px 4px 0px hsl(260, 30%, 15%);
+  --shadow-cartoon-lg: 6px 6px 0px hsl(260, 30%, 15%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  background-color: hsl(45, 100%, 96%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Baloo 2', cursive;
+}
+
+.cartoon-card {
+  border-radius: 1rem;
+  border: 3px solid hsl(var(--foreground));
+  padding: 1rem;
+  box-shadow: var(--shadow-cartoon);
+  background: hsl(var(--card));
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+
+.cartoon-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-cartoon-lg);
+}
+
+.cartoon-btn {
+  border-radius: 0.75rem;
+  border: 3px solid hsl(var(--foreground));
+  padding: 0.75rem 1.5rem;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 1.125rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-cartoon);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+}
+
+.cartoon-btn:hover,
+.hover-up:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0px hsl(var(--foreground));
+  filter: brightness(1.06);
+}
+
+.cartoon-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+  filter: brightness(0.95);
+}
+
+.cartoon-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 3px solid hsl(var(--foreground));
+  padding: 0.75rem 1rem;
+  box-shadow: 3px 3px 0px hsl(var(--foreground));
+  background: hsl(var(--card));
+  transition: box-shadow 0.2s ease;
+}
+
+.cartoon-input:focus {
+  box-shadow: 5px 5px 0px hsl(270, 70%, 55%);
+  outline: none;
+}
+
+.cartoon-avatar {
+  border-radius: 999px;
+  border: 3px solid hsl(var(--foreground));
+  box-shadow: 3px 3px 0px hsl(var(--foreground));
+}
+
+.cartoon-bubble {
+  border-radius: 1rem;
+  border: 3px solid hsl(var(--foreground));
+  padding: 0.75rem;
+  position: relative;
+  box-shadow: var(--shadow-cartoon);
+  background: hsl(var(--card));
+}
+
+.cartoon-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 24px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid hsl(var(--foreground));
+}
+
+.cartoon-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 27px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid hsl(var(--card));
+  z-index: 1;
+}
+
+.halftone-bg {
+  background-image: radial-gradient(circle, hsl(var(--foreground) / 0.14) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+.blob-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.shadow-cartoon {
+  box-shadow: var(--shadow-cartoon);
+}
+
+.shadow-cartoon-lg {
+  box-shadow: var(--shadow-cartoon-lg);
+}
+
+.shadow-small-cartoon {
+  box-shadow: 2px 2px 0px hsl(var(--foreground));
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease both;
+}
+
+.float {
+  animation: floatY 3s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.wobble-loop {
+  animation: wobble 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.bounce-in {
+  animation: bounceIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.pop-in {
+  animation: popIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.slide-down {
+  animation: slideDown 0.35s ease both;
+}
+
+.pulse-soft {
+  animation: pulseSoft 2.2s ease-in-out infinite;
+}
+
+.spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(-5deg);
+  }
+
+  40% {
+    transform: rotate(3deg);
+  }
+
+  60% {
+    transform: rotate(-3deg);
+  }
+
+  80% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .float,
+  .float-slow,
+  .wobble-loop,
+  .bounce-in,
+  .pop-in,
+  .slide-down,
+  .pulse-soft,
+  .spin-slow {
+    animation: none !important;
+  }
+}
+
+/* ===== EXPLICIT COLOR OVERRIDES (Tailwind CDN fallbacks) ===== */
+
+/* Navbar - light background */
+.app-navbar {
+  background-color: hsl(45, 100%, 98%) !important;
+  box-shadow: 0 4px 0px hsl(260, 30%, 15%);
+}
+
+#notificationsMenu,
+#searchResults,
+#mobileMenu,
+.modal-card {
+  background-color: hsl(45, 100%, 98%) !important;
+  opacity: 1 !important;
+  box-shadow: var(--shadow-cartoon-lg) !important;
+}
+
+.app-navbar .text-primary-foreground {
+  color: hsl(260, 30%, 15%);
+}
+
+/* Nav buttons — blue style */
+.app-navbar .bg-secondary {
+  background-color: hsl(215, 85%, 50%) !important;
+  color: white !important;
+  border-color: hsl(215, 85%, 40%) !important;
+}
+
+.app-navbar .bg-secondary:hover {
+  background-color: hsl(215, 85%, 42%) !important;
+}
+
+.app-navbar .bg-secondary i,
+.app-navbar .bg-secondary span {
+  color: white !important;
+}
+
+/* Follow button — Following state: solid blue */
+.follow-btn-following {
+  background-color: hsl(215, 90%, 50%) !important;
+  color: white !important;
+  border-color: hsl(215, 90%, 40%) !important;
+}
+
+/* ===== NAV POST BUTTON ===== */
+.nav-post-btn {
+  background-color: hsl(215, 85%, 50%) !important;
+  color: white !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.15s ease,
+              filter 0.15s ease;
+}
+
+.nav-post-btn:hover {
+  background-color: hsl(215, 85%, 42%) !important;
+  transform: translate(-3px, -3px) scale(1.04);
+  box-shadow: 5px 5px 0px hsl(260, 30%, 15%);
+  filter: brightness(1.1);
+}
+
+.nav-post-btn:active {
+  transform: translate(2px, 2px) scale(0.98);
+  box-shadow: none;
+}
+
+/* Ensure all interactive buttons have the pressing effect */
+button:active, 
+a.cartoon-btn:active,
+.hover-up:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: none !important;
+}
+
+.cartoon-card:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px hsl(var(--foreground));
+}
+
+/* Modal overlay */
+.modal-overlay {
+  background-color: rgba(26, 13, 43, 0.75) !important;
+  opacity: 1 !important;
+}
+
+/* ===== ENHANCED CARTOON BUTTON TRANSITION ===== */
+.cartoon-btn {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.15s ease,
+              filter 0.15s ease;
+}
+
+/* ===== LIKE / BOOKMARK MICRO-ANIMATIONS ===== */
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.45) rotate(-8deg); }
+  60%  { transform: scale(0.88); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bookmarkPop {
+  0%   { transform: scale(1) translateY(0); }
+  40%  { transform: scale(1.35) translateY(-3px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.heart-pop i {
+  animation: heartPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bookmark-pop i {
+  animation: bookmarkPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== PROFILE AVATAR UPLOAD ===== */
+.avatar-upload-wrapper {
+  cursor: pointer;
+}
+
+.avatar-upload-overlay {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  z-index: 2;
+}
+
+.avatar-upload-wrapper:hover .avatar-upload-overlay {
+  opacity: 1;
+}
+
+/* Banner upload hover */
+.banner-upload-wrapper {
+  cursor: pointer;
+}
+
+.banner-upload-hint {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.banner-upload-wrapper:hover .banner-upload-hint {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.28);
+}

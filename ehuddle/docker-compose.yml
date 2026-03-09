@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  e-huddle:
+    build: .
+    container_name: e-huddle-app
+    environment:
+      EH_API_BASE_URL: ${EH_API_BASE_URL:-}
+    command: >
+      /bin/sh -c "chmod +x /var/www/html/db-cleanup.sh
+      && /var/www/html/db-cleanup.sh &
+      chown -R www-data:www-data /var/www/html/data /var/www/html/uploads
+      && chmod -R ug+rwX /var/www/html/data /var/www/html/uploads
+      && apache2-foreground"
+    ports:
+      - "18080:80"
+    volumes:
+      - ./data:/var/www/html/data
+      - ./uploads:/var/www/html/uploads
+    restart: unless-stopped
